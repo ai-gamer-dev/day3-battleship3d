@@ -1,0 +1,164 @@
+<GameDesignDocument>
+    <GameTitle>Battle Ship 3D</GameTitle>
+    <TechnicalOverview>
+        <TargetPlatform>Web (Desktop and Mobile)</TargetPlatform>
+        <InputMethods>
+            <InputMethod>Mouse for placement and targeting</InputMethod>
+            <InputMethod>Touch for mobile devices</InputMethod>
+        </InputMethods>
+        <PerformanceRequirements>
+            <PerformanceTarget>60 FPS</PerformanceTarget>
+        </PerformanceRequirements>
+        <TechnicalArchitecture>
+            <Component>
+                <Name>Three.js Renderer</Name>
+                <Description>Handles rendering of 3D graphics.</Description>
+            </Component>
+            <Component>
+                <Name>Game State Manager</Name>
+                <Description>Manages transitions between placing ships and gameplay.</Description>
+            </Component>
+            <Component>
+                <Name>AI Opponent</Name>
+                <Description>Controls AI behavior for targeting and attacking.</Description>
+            </Component>
+        </TechnicalArchitecture>
+    </TechnicalOverview>
+    <DetailedMechanicsAnalysis>
+        <CorePhysicsParameters>
+            <Parameter>Grid Size: 10x10</Parameter>
+            <Parameter>Ship Sizes: [2, 3, 3, 4, 5]</Parameter>
+        </CorePhysicsParameters>
+        <MovementCalculations>
+            <Description>Discrete placement of ships within a grid.</Description>
+        </MovementCalculations>
+        <CollisionDetectionMethods>
+            <Method>Grid-based comparison to check for ship overlaps during placement.</Method>
+        </CollisionDetectionMethods>
+        <InputProcessingPipeline>
+            <Step>Initial mouse/touch input captures on grid.</Step>
+            <Step>Validation of ship placement based on game rules.</Step>
+            <Step>Execution of attack commands against AI.</Step>
+        </InputProcessingPipeline>
+        <RealTimeUpdates>
+            <UpdateFrequency>60 Hz</UpdateFrequency>
+        </RealTimeUpdates>
+        <MathematicalModels>
+            <Model>AI targeting probability based on previous hits/misses.</Model>
+        </MathematicalModels>
+    </DetailedMechanicsAnalysis>
+    <CoreMechanicsSpecification>
+        <PlayerControls>
+            <Control>Click to place ships on a grid.</Control>
+            <Control>Click to attack a grid cell.</Control>
+        </PlayerControls>
+        <MovementSystems>
+            <System>Static ship placements within a grid.</System>
+        </MovementSystems>
+        <InteractionModels>
+            <Model>Player vs AI turn-based interactions.</Model>
+        </InteractionModels>
+        <PhysicsImplementation>
+            <Description>Simple grid-based interactions without complex physics.</Description>
+        </PhysicsImplementation>
+        <GameStates>
+            <State>Placing Ships</State>
+            <State>Game Play</State>
+            <State>Game Over</State>
+        </GameStates>
+        <WinLoseConditions>
+            <Condition>Player wins by sinking all AI ships.</Condition>
+            <Condition>AI wins by sinking all player ships.</Condition>
+        </WinLoseConditions>
+    </CoreMechanicsSpecification>
+    <TechnicalCalculations>
+        <MathematicalModels>
+            <Model>Hit probability = (Previous Hits)/(Total Shots)</Model>
+        </MathematicalModels>
+        <PhysicsFormulas>
+            <Formula>No complex formulas, grid-based checks are sufficient.</Formula>
+        </PhysicsFormulas>
+        <VariableDefinitions>
+            <Variable>Name>Grid Size</Variable>
+            <Range>10</Range>
+            <Variable>Name>Ship Count</Variable>
+            <Range>5</Range>
+        </VariableDefinitions>
+    </TechnicalCalculations>
+    <SystemsDesign>
+        <CoreLoopDefinition>
+            <Step>Player places ships.</Step>
+            <Step>AI places ships.</Step>
+            <Step>Player attacks.</Step>
+            <Step>AI responds.</Step>
+        </CoreLoopDefinition>
+        <ProgressionSystem>
+            <Description>Simplistic, one-time play session with restart option.</Description>
+        </ProgressionSystem>
+        <EconomyDesign>
+            <Description>No in-game economy; focused on gameplay mechanics.</Description>
+        </EconomyDesign>
+        <ChallengeScaling>
+            <Description>AI difficulty adjusts based on performance metrics.</Description>
+        </ChallengeScaling>
+        <SystemDependencies>
+            <Dependency>Three.js for rendering.</Dependency>
+            <Dependency>JavaScript for game logic.</Dependency>
+        </SystemDependencies>
+    </SystemsDesign>
+    <TechnicalImplementation>
+        <AIIntegrationPoints>
+            <Point>AI decision-making for targeting logic.</Point>
+            <Point>Randomized behavior patterns for unpredictability.</Point>
+        </AIIntegrationPoints>
+        <DataStructures>
+            <Structure>Objects to contain ship data, game state, and AI decisions.</Structure>
+        </DataStructures>
+        <StateManagement>
+            <Description>Utilizing enumerations to define game states and transitions.</Description>
+        </StateManagement>
+        <PerformanceConsiderations>
+            <Consideration>Optimize rendering using instancing for ships.</Consideration>
+            <Consideration>Employ frustum culling to increase performance.</Consideration>
+        </PerformanceConsiderations>
+        <MemoryManagement>
+            <Plan>Use object pools for frequent instantiation/destroying of game objects.</Plan>
+        </MemoryManagement>
+        <ThreadingModel>
+            <Description>Single-threaded due to JavaScript's event-driven nature.</Description>
+        </ThreadingModel>
+    </TechnicalImplementation>
+    <AssetRequirements>
+        <VisualAssets>
+            <Requirement>3D models for ships (low-poly).</Requirement>
+            <Requirement>Simple UI elements for grid representation.</Requirement>
+        </VisualAssets>
+        <AudioRequirements>
+            <Requirement>Sound effects for hits and misses.</Requirement>
+            <Requirement>Background music for gameplay.</Requirement>
+        </AudioRequirements>
+        <AIGenerationSpecifications>
+            <Requirement>Randomized AI behaviors based on simple algorithm.</Requirement>
+        </AIGenerationSpecifications>
+        <ResourceManagement>
+            <Management>Minimize loading times using asynchronous asset loading.</Management>
+        </ResourceManagement>
+    </AssetRequirements>
+    <DevelopmentRoadmap>
+        <CoreFeatures>
+            <Feature>Ship placement and removal.</Feature>
+            <Feature>Player turn-based attacks.</Feature>
+            <Feature>AI responses to player attacks.</Feature>
+        </CoreFeatures>
+        <NiceToHaveFeatures>
+            <Feature>Multiple AI difficulty levels.</Feature>
+            <Feature>Customizable ship designs.</Feature>
+        </NiceToHaveFeatures>
+        <TechnicalDebtConsiderations>
+            <Consideration>Ensure enough documentation for future expansion.</Consideration>
+        </TechnicalDebtConsiderations>
+        <PerformanceOptimizationPlan>
+            <Plan>Regular profiling of rendering performance and optimizations based on findings.</Plan>
+        </PerformanceOptimizationPlan>
+    </DevelopmentRoadmap>
+</GameDesignDocument>

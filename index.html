@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship 3D</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="ship-placement-ui" class="overlay hidden">
+            <div class="placement-options">
+                <h2>Place Your Ships</h2>
+                <div class="placement-choice">
+                    <button id="random-placement">Random Placement</button>
+                    <button id="manual-placement">Manual Placement</button>
+                </div>
+            </div>
+        </div>
+        <div id="current-ship-info" class="info-overlay hidden">
+            <div class="ship-info">
+                <h3>Place your <span id="ship-name">Carrier</span></h3>
+                <p>Length: <span id="ship-length">5</span></p>
+                <p class="controls-hint">Press 'R' to rotate • Click to place</p>
+            </div>
+        </div>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+                "three/water": "https://unpkg.com/three@0.160.0/examples/jsm/objects/Water.js",
+                "three/gui": "https://unpkg.com/three@0.160.0/examples/jsm/libs/lil-gui.module.min.js"
+            }
+        }
+    </script>
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html> 
